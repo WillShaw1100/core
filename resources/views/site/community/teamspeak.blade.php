@@ -250,7 +250,7 @@
                 <ol>
                     <li>
                         Go to the&nbsp;<a href="http://www.teamspeak.com/" rel="external nofollow" target="_blank">TeamSpeak
-                            website</a>&nbsp;and download the latest client appropriate for your operating system.
+                            website</a>&nbsp;and download the TS3 client for your operating system.
                     </li>
                 </ol>
 
