@@ -2,6 +2,7 @@
 
 namespace App\Models\Training\TrainingPlace;
 
+use App\Models\Cts\CancelReason;
 use App\Models\Cts\Session as CtsSession;
 use App\Models\Mship\Account;
 use App\Models\Training\TrainingPosition\TrainingPosition;
@@ -36,6 +37,11 @@ class TrainingPlace extends Model
     {
         return $this->belongsTo(WaitingListAccount::class, 'waiting_list_account_id')
             ->withTrashed();
+    }
+
+    public function account(): BelongsTo
+    {
+        return $this->belongsTo(Account::class, 'account_id');
     }
 
     public function trainingPosition(): BelongsTo
@@ -78,15 +84,29 @@ class TrainingPlace extends Model
         return $this->leaveOfAbsences()->current()->first();
     }
 
+    public function hasExamCancellations(): bool
+    {
+        $position = $this->trainingPosition?->exam_callsign ?? $this->trainingPosition?->position?->callsign;
+
+        if (! $position) {
+            return false;
+        }
+
+        return CancelReason::query()
+            ->join('exam_book', 'cancel_reason.sesh_id', '=', 'exam_book.id')
+            ->where('cancel_reason.sesh_type', 'EX')
+            ->where('exam_book.position_1', $position)
+            ->exists();
+    }
+
     public function deletePendingSessionRequests(): void
     {
         $this->loadMissing([
             'trainingPosition',
-            'waitingListAccount.account',
+            'account',
         ]);
 
-        $account = $this->waitingListAccount?->account;
-        $member = $account?->member;
+        $member = $this->account->member;
 
         if (! $member) {
             return;
@@ -110,7 +130,8 @@ class TrainingPlace extends Model
 
     public function revokeTrainingPlace(string $reason, Account $admin): void
     {
-        $this->waitingListAccount->account->addNote('training', "Training place revoked on {$this->trainingPosition->position->callsign}. Reason: {$reason}", $admin->id);
+        $this->account->addNote('training', "Training place revoked on {$this->trainingPosition->position->callsign}. Reason: {$reason}", $admin->id);
+
         $this->delete();
     }
 }

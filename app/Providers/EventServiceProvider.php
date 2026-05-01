@@ -20,10 +20,6 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\Training\WaitingList\CheckWaitingListAccountMshipState::class,
         ],
 
-        \App\Events\Mship\Qualifications\QualificationAdded::class => [
-            \App\Listeners\Mship\SendS1Email::class,
-        ],
-
         \App\Events\Mship\Feedback\NewFeedbackEvent::class => [
             // \App\Listeners\Mship\Feedback\NotifyOfNewFeedback::class,
         ],
@@ -72,6 +68,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         \App\Events\Mship\Endorsement\TierEndorsementAdded::class => [
             \App\Listeners\Mship\Endorsement\NotifyOfTierEndorsement::class,
+            \App\Listeners\Mship\Endorsement\AnnounceTierEndorsement::class,
         ],
         \App\Events\Mship\Endorsement\PositionEndorsementAdded::class => [
             \App\Listeners\Mship\Endorsement\NotifyOfPositionEndorsement::class,

@@ -44,6 +44,11 @@ class ExamBooking extends Model
         return $this->hasOne(PracticalExaminers::class, 'examid', 'id');
     }
 
+    public function setup(): HasOne
+    {
+        return $this->hasOne(ExamSetup::class, 'bookid', 'id');
+    }
+
     public function startDate(): Attribute
     {
         return Attribute::make(
@@ -77,5 +82,12 @@ class ExamBooking extends Model
     {
         return $this->where('taken', 1)
             ->where('finished', self::NOT_FINISHED_FLAG);
+    }
+
+    public function cancelReasons()
+    {
+        return $this->hasMany(CancelReason::class, 'sesh_id', 'id')
+            ->where('sesh_type', 'EX')
+            ->orderBy('date', 'desc');
     }
 }
