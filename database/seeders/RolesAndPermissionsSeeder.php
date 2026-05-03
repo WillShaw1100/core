@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Permission;
+use App\Services\Training\MentorPermissionService;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Exceptions\PermissionDoesNotExist;
 use Spatie\Permission\Models\Role;
@@ -32,6 +33,15 @@ class RolesAndPermissionsSeeder extends Seeder
         $pilotExaminer = Role::firstOrCreate(['name' => 'Pilot Examiner (P1)', 'guard_name' => 'web', 'default' => false]);
         $pilotExaminer = Role::firstOrCreate(['name' => 'Pilot Examiner (P2)', 'guard_name' => 'web', 'default' => false]);
         $pilotExaminer = Role::firstOrCreate(['name' => 'Pilot Examiner (P3)', 'guard_name' => 'web', 'default' => false]);
+
+        foreach (MentorPermissionService::ATC_CATEGORY_ROLE_MAP as $mentorRole) {
+            Role::firstOrCreate(['name' => $mentorRole, 'guard_name' => 'web', 'default' => false]);
+        }
+
+        foreach (MentorPermissionService::PILOT_CATEGORY_ROLE_MAP as $mentorRole) {
+            Role::firstOrCreate(['name' => $mentorRole, 'guard_name' => 'web', 'default' => false]);
+        }
+        Role::firstOrCreate(['name' => 'P3 Mentor', 'guard_name' => 'web', 'default' => false]);
 
         // Add All Permissions
         $permissions = [
@@ -74,6 +84,13 @@ class RolesAndPermissionsSeeder extends Seeder
             'training.examiners.manage.atc',
             'training.examiners.manage.pilot',
 
+            'training.mentors.view.*',
+            'training.mentors.view.atc',
+            'training.mentors.view.pilot',
+            'training.mentors.manage.*',
+            'training.mentors.manage.atc',
+            'training.mentors.manage.pilot',
+
             // Account Permissions
             'account.self',
             'account.view-insensitive.*',
@@ -100,6 +117,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'role.edit.*',
             'role.delete.*',
             'role.manage-delegates.*',
+            'role.sync-discord.*',
 
             // Visit Transfer System Permissions
             'vt.access',
