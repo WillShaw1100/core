@@ -1,7 +1,7 @@
 <x-markdown>
 ### Introduction
 
-This page explains the basics of the Enroute (CTR) sectors in the UK. The information is split into sections for different stages of flight.
+This page explains the basics of the En Route (CTR) sectors in the UK. The information is split into sections for different stages of flight.
 
 If you are ever unsure who to call, please message one of our controllers. They will be more than happy to help!
 
@@ -13,7 +13,7 @@ If you are ever unsure who to call, please message one of our controllers. They 
 
 The two main radio callsigns for Area controllers in the UK are:
 
-1. **"London Control"** – all LON and LTC callsigns  
+1. **"London Control"** – all LON and LTC callsigns
 2. **"Scottish Control"** – all SCO, STC and MAN callsigns
 
 </x-markdown>

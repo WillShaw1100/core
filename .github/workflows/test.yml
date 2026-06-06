@@ -6,6 +6,10 @@ on:
       - main
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
     name: Lint
@@ -21,12 +25,41 @@ jobs:
         with:
           php-version: 8.4
           coverage: none
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Node Cache
+        id: node-cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            node_modules
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-
+
+      - name: Install assets
+        if: steps.node-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Composer Cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            vendor
+            ~/.composer/cache
+          key: composer-${{ matrix.php }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            composer-${{ matrix.php }}-
+            composer-
 
       - name: Install PHP dependencies
         uses: ramsey/composer-install@v4
 
-      - name: "Lint PHP"
-        run: composer lint -- --test --parallel
+      - name: Run Prek
+        uses: j178/prek-action@v2
 
   test:
     name: PHP ${{ matrix.php }} / Composer ${{ matrix.composer }}
@@ -75,12 +108,7 @@ jobs:
         id: node-cache
         uses: actions/cache@v5
         with:
-          path: |
-            node_modules
-            public/build
-            public/css
-            public/js
-            public/mix-manifest.json
+          path: node_modules
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
@@ -102,7 +130,6 @@ jobs:
         run: npm ci
 
       - name: Compile assets
-        if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm run build
 
       - name: Create Environment File

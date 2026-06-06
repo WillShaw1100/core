@@ -51,9 +51,11 @@ class RolesAndPermissionsSeeder extends Seeder
             'admin.access',
             'horizon.access',
             'telescope.access',
+            'log-viewer.access',
 
             // Training Panel Permissions
             'training.access',
+            'training.beta',
             'training.exams.access',
             'training.exams.setup',
             'training.exams.conduct.*',
@@ -90,6 +92,8 @@ class RolesAndPermissionsSeeder extends Seeder
             'training.mentors.manage.*',
             'training.mentors.manage.atc',
             'training.mentors.manage.pilot',
+
+            'training.mentoring.view.*',
 
             // Account Permissions
             'account.self',

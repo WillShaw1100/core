@@ -2,6 +2,7 @@
 
 namespace App\Filament\Training\Pages\TrainingPlace;
 
+use App\Filament\Training\Pages\Mentor\ViewMentoringReport;
 use App\Filament\Training\Pages\TrainingPlace\Widgets\TrainingPlaceStatsWidget;
 use App\Filament\Training\Resources\TrainingPlaces\Pages\ListTrainingPlaces;
 use App\Models\Atc\Position;
@@ -14,7 +15,6 @@ use App\Repositories\Cts\SessionRepository;
 use App\Services\Training\ExamForwardingService;
 use Exception;
 use Filament\Actions\Action;
-use Filament\Actions\ViewAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -24,6 +24,7 @@ use Filament\Infolists\Concerns\InteractsWithInfolists;
 use Filament\Infolists\Contracts\HasInfolists;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
+use Filament\Schemas\Components\Callout;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
@@ -71,7 +72,25 @@ class ViewTrainingPlace extends Page implements HasInfolists, HasTable
 
     public function getTitle(): string|Htmlable
     {
-        return "View Training Place - {$this->trainingPlace->account->name}";
+        $title = "View Training Place - {$this->trainingPlace->account->name}";
+        $callsign = $this->trainingPlace->trainingPosition?->position?->callsign;
+
+        if (filled($callsign)) {
+            $title .= " ({$callsign})";
+        }
+
+        return $title;
+    }
+
+    /**
+     * @return array<string, string>|array<int, string|Htmlable>
+     */
+    public function getBreadcrumbs(): array
+    {
+        return [
+            ListTrainingPlaces::getUrl() => 'Training Places',
+            $this->getTitle(),
+        ];
     }
 
     protected function getHeaderWidgets(): array
@@ -236,19 +255,12 @@ class ViewTrainingPlace extends Page implements HasInfolists, HasTable
     {
 
         return $schema->record($this->trainingPlace)->components([
-            Section::make('This training place is inactive')
+            Callout::make('This training place is inactive')
                 ->icon('heroicon-o-exclamation-triangle')
-                ->description('This training place is now read only.')
-                ->iconColor('danger')
-                ->collapsible()
-                ->collapsed(true)
+                ->danger()
+                ->description(fn () => 'This training place has been removed and it is now inactive. Removed on '.$this->trainingPlace->deleted_at?->format('d/m/Y \a\t H:i').'.')
                 ->visible(fn (): bool => (bool) $this->trainingPlace->deleted_at)
-                ->columnSpanFull()
-                ->schema([
-                    TextEntry::make('deleted_at')
-                        ->label('Removed on')
-                        ->dateTime('d/m/Y \a\t H:i'),
-                ]),
+                ->columnSpanFull(),
             Section::make('Training Place Details')->columnSpanFull()->schema([
                 TextEntry::make('account.name')->label('Name'),
                 TextEntry::make('account.id')->label('CID'),
@@ -298,7 +310,11 @@ class ViewTrainingPlace extends Page implements HasInfolists, HasTable
                     }),
             ])
             ->recordActions([
-                ViewAction::make()->url(fn ($record) => "https://cts.vatsim.uk/mentors/report.php?id={$record->id}&view=report"),
+                Action::make('view')
+                    ->label('View Report')
+                    ->url(fn ($record) => ViewMentoringReport::getUrl(['sessionId' => $record->id]))
+                    ->visible(fn ($record) => $record->filed !== null)
+                    ->openUrlInNewTab(),
             ])
             ->emptyStateHeading('No mentoring sessions found');
     }

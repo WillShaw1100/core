@@ -1,7 +1,7 @@
 <x-markdown>
 # Syllabus and Lesson Plans
 
-**Version 1.0**  
+**Version 1.0**
 **Effective Date:** 2nd February 2026
 
 ---
@@ -16,7 +16,7 @@ This document outlines the Senior Student (S3) training syllabus for students tr
 
 This document is only to be used in conjunction with the S3 training scheme of the VATSIM UK Training Department and should never be adopted for real world use.
 
-The information published by VATSIM UK within this document is made available without warranty of any kind; the Organization accepts no responsibility or liability whether direct or indirect, 
+The information published by VATSIM UK within this document is made available without warranty of any kind; the Organization accepts no responsibility or liability whether direct or indirect,
 as to the currency, accuracy or quality of the information, nor for any consequence of its use.
 
 ---
@@ -26,7 +26,7 @@ as to the currency, accuracy or quality of the information, nor for any conseque
 The syllabus details the competencies and content covered by the S3 training course in VATSIM UK. Students will meet the learning objectives through independent study of material provided in eLearning courses and traditional documentation, supported by mentors and instructors in one-to-one and group teaching sessions. Students are encouraged to ask questions in the #app_students channel on Discord.
 
 ---
-    
+
 ## Pre-Course Learning
 
 In advance of students beginning a course of practical training, they are expected to have completed the relevant theory examination and attended a pre-course seminar, which will serve to provide the basis for theoretical knowledge to be developed upon during a course of practical training. VATSIM UK’s S3 Moodle course should form the basis for much of the theoretical knowledge required for the rating.
@@ -45,7 +45,7 @@ The pre-course seminar will cover the following content:
     - MATS Part 1
     - vMATS
     - CAP413
-    - Discord Training Fora     
+    - Discord Training Fora
     - S3 Moodle Course
     - Mentoring Reports
 - Equipment and Systems
@@ -58,9 +58,9 @@ The pre-course seminar will cover the following content:
     - Inbound Releases
 
 ---
-    
+
 ## Syllabus
-This section serves to outline the competencies required of an S3 controller within VATSIM UK and aims to explain the requirements of each competency. Insofar as is possible, this section should be considered exhaustive; it should not be required that a student receiving training towards an S3 rating in VATSIM UK demonstrate any skills beyond those which are listed in this section of this document.     
+This section serves to outline the competencies required of an S3 controller within VATSIM UK and aims to explain the requirements of each competency. Insofar as is possible, this section should be considered exhaustive; it should not be required that a student receiving training towards an S3 rating in VATSIM UK demonstrate any skills beyond those which are listed in this section of this document.
 
 ### Block Training
 
@@ -91,7 +91,7 @@ Block one aims to introduce student controllers to the basic concept of approach
         - Basic conditions for releases.
         - Expectations for controlling departing aircraft.
         - Standing agreements for spacing of arriving aircraft.
-- Radiotelephony 
+- Radiotelephony
     - The use of correct phraseology, focused on the handling of IFR traffic.
     - Frequency presence and management, including communication priority.
 - Vectoring, descent management, separation and spacing.
@@ -161,7 +161,7 @@ In order to ensure that students and mentors have a common understanding of the 
 
 ## Lessons Plans
 
-In order to ensure that students beginning their S3 training are brokered to the syllabus in a consistent manner, the department requires that students are generally taken through a number of pre-determined lesson plans. Whilst these lesson plans provide a set structure for training, they may, at the discretion of the mentor, be condensed, replaced or re-ordered, depending on an individual students approach to training. 
+In order to ensure that students beginning their S3 training are brokered to the syllabus in a consistent manner, the department requires that students are generally taken through a number of pre-determined lesson plans. Whilst these lesson plans provide a set structure for training, they may, at the discretion of the mentor, be condensed, replaced or re-ordered, depending on an individual students approach to training.
 
 ### Lesson One
 
@@ -219,10 +219,10 @@ This lesson is intended to take approximately 60-90 minutes.
 | **2** | The mentor should discuss principles of establishing aircraft for ILS approaches, including:<br><br>- Aircraft must be below the glidepath to intercept.<br>- High-speed aircraft may overshoot the localiser.<br>- Aircraft must not establish on a heading more than 40° from the localiser.<br>- Aircraft should, where possible, experience straight and level flight before intercepting.<br><br>The mentor should explain phraseology differences for aircraft establishing above versus at/below platform altitude. <br><br>The student should then vector aircraft to establish on an instrument approach, respecting airspace confines, platform altitude and descent profile. | The student can:<br><br>- Vector aircraft appropriately in low-workload situations to establish on an approach.<br>- Consistently establish aircraft at the same intercept point.<br>- Manage aircraft speed appropriately throughout the arrival phase. |
 
 #### Required Future Learning
-At the end of the session, the student should be directed to ensure that they revise the local airspace of the position that they are controlling, with the intention of beginning live controlling. They should focus on the lateral and vertical constraints of their airspace and, if capacity allows, basic information regarding release points. 
+At the end of the session, the student should be directed to ensure that they revise the local airspace of the position that they are controlling, with the intention of beginning live controlling. They should focus on the lateral and vertical constraints of their airspace and, if capacity allows, basic information regarding release points.
 
 ---
-    
+
 ## End Of Block Assessments
 
 The S3 syllabus does not require an assessment at the end of block one. The natural progression of students is expected to slowly incorporate block two elements, although the mentor may be expected to either take control of the frequency, reject certain traffic scenarios or heavily coach the student through block two scenarios early in the live training.
@@ -230,22 +230,22 @@ The S3 syllabus does not require an assessment at the end of block one. The natu
 At the end of block two, before a student is considered for a practical exam, an end of block two assessment should be conducted by a suitably experienced member of the training group, authorised by the Training Group Instructor, ATC Training Manager or ATC Training Director. The assessment should be conducted in exam conditions: an open book assessment whereby the student is expected to independently control appropriate volumes of traffic and demonstrate an acceptable level of competence of all competencies required within the syllabus. In normal circumstances, an examination should not be concluded until a block two assessment has been conducted and the prospective candidate demonstrated the required standard of control to pass an exam.
 
 ---
-    
+
 ## Guidance to Mentors
 
 It is widely regarded that the learning curve from S2 to S3 is the steepest that students will undergo throughout their ATC Training in VATSIM UK. Thus, mentors must ensure that students are theoretically prepared for their training and set realistic practical expectations for the first few mentoring sessions. Below is a list of do’s and don’ts through the S3 training programme
 
 **DO:**
 - Remind students that controlling with Mode C correlation is mandatory. The use of Easy VATSIM mode is not permitted.
-- Discuss and check baseline theoretical knowledge between lessons – a solid theoretical foundation is critical to good practical development. 
+- Discuss and check baseline theoretical knowledge between lessons – a solid theoretical foundation is critical to good practical development.
 - Set realistic goals for students. Approach radar training is difficult; there are many concepts to adopt and students are truly in control in three dimensions for the first time.
 - Be open and honest; challenge students, remind them that they are responsible for their own development and stop sessions if the student has demonstrably not put the effort in. Inform students if they are not meeting the expected standard and inform the Training Group staff.
 - Ask the student why they’re doing something – demonstrating and understanding of the tools, techniques, rules and restrictions is more critical at this level than for Aerodrome ratings.
 - Use plenty of images in mentoring reports to supplement your description of learning points. Be thorough!
 
 **DON’T:**
-- Simply put the student straight into a live network session without having prepared them for it. Their confidence will be damaged when mistakes are made; this precious time to repair. 
-- Bring in more advanced competencies from other blocks. Stick to teaching Block 1 competencies until the student demonstrates suitable proficiency. 
+- Simply put the student straight into a live network session without having prepared them for it. Their confidence will be damaged when mistakes are made; this precious time to repair.
+- Bring in more advanced competencies from other blocks. Stick to teaching Block 1 competencies until the student demonstrates suitable proficiency.
 - Expect the student to know everything. The theoretical training resources are a great tool for preparation, but they cannot prepare students for handling the real thing. Guide students on where to find information and discuss why mistakes are made.
 - Take control of the frequency unnecessarily – students have to make mistakes to learn and they cannot make mistakes if you take the frequency!
 

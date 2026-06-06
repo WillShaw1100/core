@@ -2,15 +2,15 @@
 
 Our controllers will always send you a **contact me** if you are entering their airspace. However, you can use the diagrams below or [**VATGlasses**](https://vatglasses.uk/ukireland/) if you want to know when to call them in advance.
 
-You should look up and plan for descent according to your expected **STAR**.  
-You can also report your expected STAR on first contact to save time.  
+You should look up and plan for descent according to your expected **STAR**.
+You can also report your expected STAR on first contact to save time.
 If you need to descend before you enter an online controller’s airspace, then do so.
 
 ---
 
 ## London - Main Positions
 
-The main London sector groups (**North**, **South**, **Central**, and **West**) are shown below.  
+The main London sector groups (**North**, **South**, **Central**, and **West**) are shown below.
 Sometimes these sectors are combined using the `LON_SC_CTR` or `LON_CTR` callsigns.
 
 <img class="img-responsive center-block" src="/images/egtt-sectors-2023-11.png" alt="diagram of main London sectors">
@@ -55,7 +55,7 @@ These may be combined using:
 
 ## Scottish - Main Positions
 
-You will most often see `SCO_CTR`, which covers **all Scottish airspace**.  
+You will most often see `SCO_CTR`, which covers **all Scottish airspace**.
 The diagram below shows the two main **upper splits**.
 
 - `STC_CTR`: Below **FL255** around the Scottish TMA, covering **EGPH**, **EGPF**, and **EGPK**.
