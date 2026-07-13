@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Filament\Training\Pages\Dashboard;
 use App\Filament\Training\Pages\EmailSettings;
 use App\Filament\Widgets\AccountInfoWidget;
+use App\Filament\Widgets\UpcomingMentoringSessionWidget;
 use App\Http\Middleware\MandatoryTwoFactor;
 use App\Http\Middleware\TrackInactivity;
 use App\Http\Middleware\TrainingPanelAccessMiddleware;
@@ -41,6 +42,7 @@ class TrainingPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Training/Widgets'), for: 'App\\Filament\\Training\\Widgets')
             ->widgets([
+                UpcomingMentoringSessionWidget::class,
                 AccountInfoWidget::class,
             ])
             ->middleware([
