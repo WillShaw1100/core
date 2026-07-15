@@ -147,6 +147,29 @@ abstract class BaseMentoringHistoryPage extends Page implements HasTable
                     $record->filed !== null => 'Completed',
                     default => 'Pending',
                 })
+                ->description(function ($record) {
+                    if ($record->cancelled_datetime !== null && $record->noShow != 1) {
+                        $cancelledById = $record->cancelReason?->reason_by;
+
+                        if (! $cancelledById) {
+                            return 'By Unknown';
+                        }
+
+                        if ($cancelledById === $record->student_id) {
+                            return 'By Student';
+                        }
+
+                        if ($cancelledById === $record->mentor_id) {
+                            return 'By Mentor';
+                        }
+
+                        $canceller = $cancelledById ? Member::find($cancelledById) : null;
+
+                        return $canceller ? "By {$canceller->cid}" : 'By Unknown';
+                    }
+
+                    return null;
+                })
                 ->color(fn ($state) => match ($state) {
                     'Pending' => 'primary',
                     'No Show' => 'danger',
