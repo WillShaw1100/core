@@ -42,7 +42,6 @@ class TrainingPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Training/Widgets'), for: 'App\\Filament\\Training\\Widgets')
             ->widgets([
-                UpcomingMentoringSessionWidget::class,
                 AccountInfoWidget::class,
                 UpcomingTrainingSessionWidget::class,
             ])
